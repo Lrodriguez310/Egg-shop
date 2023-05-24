@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Hamburger Menu with Animated Background</title>
+  <style>
+    /* CSS for the hamburger menu */
+    .hamburger {
+      display: none;
+    }
+    
+    .hamburger-icon {
+      display: block;
+      cursor: pointer;
+      padding: 10px;
+    }
+    
+    .menu {
+      display: flex;
+    }
+    
+    .menu li {
+      margin-right: 10px;
+    }
+    
+    /* CSS for the animated background */
+    body {
+      overflow: hidden;
+    }
+    
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -10;
+      background-image: url('man-walking.gif');
+      background-size: contain;
+      animation: walk 10s linear infinite;
+    }
+    
+    @keyframes walk {
+      0% { background-position: -500px 0; }
+      100% { background-position: calc(100% + 500px) 0; }
+    }
+    
+    /* Media queries for responsive design */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      
+      .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  
+  <header>
+    <nav>
+      <div class="hamburger">
+        <div class="hamburger-icon" onclick="toggleMenu()">&#9776;</div>
+      </div>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <script>
+    function toggleMenu() {
+        var menu = document.querySelector('.menu');
+    menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
+    menu.style.flexDirection = menu.style.flexDirection === 'row' ? 'column' : 'row';
+    }
+  </script>
+</body>
+</html>
